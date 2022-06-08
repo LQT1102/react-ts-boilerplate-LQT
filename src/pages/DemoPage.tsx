@@ -1,12 +1,4 @@
-import {
-    Button,
-    DarkMode,
-    Heading,
-    HStack,
-    LightMode,
-    useColorMode,
-} from "@chakra-ui/react";
-import { changeLanguage } from "i18next";
+import { Button, Heading, HStack, useColorMode } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
 type Props = {};
@@ -25,17 +17,6 @@ export default function DemoPage({}: Props) {
     return (
         <HStack>
             <Heading>{t("hello")}</Heading>
-            <LightMode>
-                <Button size="sm" colorScheme="blue">
-                    Light Mode Always
-                </Button>
-            </LightMode>
-
-            <DarkMode>
-                <Button size="sm" colorScheme="blue">
-                    Dark Mode Always
-                </Button>
-            </DarkMode>
 
             <Button size="sm" colorScheme="blue" onClick={toggleColorMode}>
                 Toggle Mode
