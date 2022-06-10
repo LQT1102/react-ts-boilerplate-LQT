@@ -8,6 +8,17 @@ const config: ThemeConfig = {
 }
 
 // 3. extend the theme
-const theme = extendTheme({ config })
+const theme = extendTheme({ 
+  config,
+  components: {
+    Button: {
+      // 1. We can update the base styles
+      baseStyle: (props : any) => {
+        return {
+          fontWeight: 'bold',
+        }
+      }
+    }}
+ })
 
 export default theme

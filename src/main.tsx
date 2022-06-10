@@ -9,20 +9,24 @@ import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 const queryClient = new QueryClient();
 import "./translations/i18n";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <QueryClientProvider client={queryClient}>
-            <ChakraProvider theme={theme}>
-                <ColorModeScript
-                    initialColorMode={theme.config.initialColorMode}
-                />
-                <HelmetProvider>
-                    <BrowserRouter>
-                        <App />
-                    </BrowserRouter>
-                </HelmetProvider>
-            </ChakraProvider>
-        </QueryClientProvider>
+        <Provider store={store}>
+            <QueryClientProvider client={queryClient}>
+                <ChakraProvider theme={theme}>
+                    <ColorModeScript
+                        initialColorMode={theme.config.initialColorMode}
+                    />
+                    <HelmetProvider>
+                        <BrowserRouter>
+                            <App />
+                        </BrowserRouter>
+                    </HelmetProvider>
+                </ChakraProvider>
+            </QueryClientProvider>
+        </Provider>
     </React.StrictMode>
 );

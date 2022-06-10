@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import SiteLayout from "./layouts/siteLayout/SiteLayout";
 import loadable from "./utils/loadable";
 
 const DemoPage = loadable(() => import("./pages/DemoPage"));
@@ -19,7 +20,7 @@ function App() {
                 />
             </Helmet>
             <Routes>
-                <Route path="/" element={<DemoPage />}>
+                <Route path="/" element={<SiteLayout />}>
                     <Route path="/demo" element={<DemoPage />} />
                 </Route>
             </Routes>
